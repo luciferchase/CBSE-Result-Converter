@@ -519,6 +519,114 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/C/Users/udit2/Codes/Projects/CBSE-12th-result-csv/.gitignore",
+			"settings":
+			{
+				"buffer_size": 1873,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "\n\n#"
+					},
+					"AwAAADcHAAAAAAAAOAcAAAAAAAAAAAAAOAcAAAAAAAA5BwAAAAAAAAAAAAA5BwAAAAAAADoHAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAANwcAAAAAAAA3BwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": " Execut"
+					},
+					"BwAAADoHAAAAAAAAOwcAAAAAAAAAAAAAOwcAAAAAAAA8BwAAAAAAAAAAAAA8BwAAAAAAAD0HAAAAAAAAAAAAAD0HAAAAAAAAPgcAAAAAAAAAAAAAPgcAAAAAAAA/BwAAAAAAAAAAAAA/BwAAAAAAAEAHAAAAAAAAAAAAAEAHAAAAAAAAQQcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOgcAAAAAAAA6BwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": "able"
+					},
+					"BAAAAEEHAAAAAAAAQgcAAAAAAAAAAAAAQgcAAAAAAABDBwAAAAAAAAAAAABDBwAAAAAAAEQHAAAAAAAAAAAAAEQHAAAAAAAARQcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQQcAAAAAAABBBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": " files"
+					},
+					"BgAAAEUHAAAAAAAARgcAAAAAAAAAAAAARgcAAAAAAABHBwAAAAAAAAAAAABHBwAAAAAAAEgHAAAAAAAAAAAAAEgHAAAAAAAASQcAAAAAAAAAAAAASQcAAAAAAABKBwAAAAAAAAAAAABKBwAAAAAAAEsHAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARQcAAAAAAABFBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAEsHAAAAAAAATAcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASwcAAAAAAABLBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": "."
+					},
+					"AQAAAEwHAAAAAAAATQcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATAcAAAAAAABMBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEwHAAAAAAAATAcAAAAAAAABAAAALg",
+					"AQAAAAAAAAABAAAATQcAAAAAAABNBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": "*e"
+					},
+					"AgAAAEwHAAAAAAAATQcAAAAAAAAAAAAATQcAAAAAAABOBwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATAcAAAAAAABMBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					1,
+					"left_delete",
+					null,
+					"AQAAAE0HAAAAAAAATQcAAAAAAAABAAAAZQ",
+					"AQAAAAAAAAABAAAATgcAAAAAAABOBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": ".exe"
+					},
+					"BAAAAE0HAAAAAAAATgcAAAAAAAAAAAAATgcAAAAAAABPBwAAAAAAAAAAAABPBwAAAAAAAFAHAAAAAAAAAAAAAFAHAAAAAAAAUQcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATQcAAAAAAABNBwAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -1182,6 +1290,111 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/udit2/Codes/Projects/CBSE-12th-result-csv/.gitignore",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1873,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1873,
+								1873
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"rainbow_checked": true,
+							"syntax": "Packages/Theme - Afterglow/Prefs/Langs/Git.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2106.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1236,7 +1449,7 @@
 	"project": "cbse_result_parser.sublime-project",
 	"replace":
 	{
-		"height": 92.0
+		"height": 50.0
 	},
 	"save_all_on_build": false,
 	"select_file":
