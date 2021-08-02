@@ -137,3 +137,6 @@ test.*
 
 # Executable files
 *.exe
+
+# Sublime settings
+.sublime

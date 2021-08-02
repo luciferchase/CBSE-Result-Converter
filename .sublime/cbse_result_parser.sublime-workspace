@@ -523,7 +523,7 @@
 			"file": "/C/Users/udit2/Codes/Projects/CBSE-12th-result-csv/.gitignore",
 			"settings":
 			{
-				"buffer_size": 1873,
+				"buffer_size": 1903,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			},
@@ -537,7 +537,7 @@
 						"characters": "\n\n#"
 					},
 					"AwAAADcHAAAAAAAAOAcAAAAAAAAAAAAAOAcAAAAAAAA5BwAAAAAAAAAAAAA5BwAAAAAAADoHAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAANwcAAAAAAAA3BwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA3BwAAAAAAADcHAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					4,
@@ -547,7 +547,7 @@
 						"characters": " Execut"
 					},
 					"BwAAADoHAAAAAAAAOwcAAAAAAAAAAAAAOwcAAAAAAAA8BwAAAAAAAAAAAAA8BwAAAAAAAD0HAAAAAAAAAAAAAD0HAAAAAAAAPgcAAAAAAAAAAAAAPgcAAAAAAAA/BwAAAAAAAAAAAAA/BwAAAAAAAEAHAAAAAAAAAAAAAEAHAAAAAAAAQQcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAOgcAAAAAAAA6BwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA6BwAAAAAAADoHAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					5,
@@ -557,7 +557,7 @@
 						"characters": "able"
 					},
 					"BAAAAEEHAAAAAAAAQgcAAAAAAAAAAAAAQgcAAAAAAABDBwAAAAAAAAAAAABDBwAAAAAAAEQHAAAAAAAAAAAAAEQHAAAAAAAARQcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAQQcAAAAAAABBBwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABBBwAAAAAAAEEHAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					6,
@@ -567,7 +567,7 @@
 						"characters": " files"
 					},
 					"BgAAAEUHAAAAAAAARgcAAAAAAAAAAAAARgcAAAAAAABHBwAAAAAAAAAAAABHBwAAAAAAAEgHAAAAAAAAAAAAAEgHAAAAAAAASQcAAAAAAAAAAAAASQcAAAAAAABKBwAAAAAAAAAAAABKBwAAAAAAAEsHAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAARQcAAAAAAABFBwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABFBwAAAAAAAEUHAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					7,
@@ -577,7 +577,7 @@
 						"characters": "\n"
 					},
 					"AQAAAEsHAAAAAAAATAcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAASwcAAAAAAABLBwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABLBwAAAAAAAEsHAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					8,
@@ -587,7 +587,7 @@
 						"characters": "."
 					},
 					"AQAAAEwHAAAAAAAATQcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAATAcAAAAAAABMBwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABMBwAAAAAAAEwHAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					9,
@@ -595,7 +595,7 @@
 					"left_delete",
 					null,
 					"AQAAAEwHAAAAAAAATAcAAAAAAAABAAAALg",
-					"AQAAAAAAAAABAAAATQcAAAAAAABNBwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABNBwAAAAAAAE0HAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					10,
@@ -605,7 +605,7 @@
 						"characters": "*e"
 					},
 					"AgAAAEwHAAAAAAAATQcAAAAAAAAAAAAATQcAAAAAAABOBwAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAATAcAAAAAAABMBwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABMBwAAAAAAAEwHAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					11,
@@ -613,7 +613,7 @@
 					"left_delete",
 					null,
 					"AQAAAE0HAAAAAAAATQcAAAAAAAABAAAAZQ",
-					"AQAAAAAAAAABAAAATgcAAAAAAABOBwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABOBwAAAAAAAE4HAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					12,
@@ -623,7 +623,221 @@
 						"characters": ".exe"
 					},
 					"BAAAAE0HAAAAAAAATgcAAAAAAAAAAAAATgcAAAAAAABPBwAAAAAAAAAAAABPBwAAAAAAAFAHAAAAAAAAAAAAAFAHAAAAAAAAUQcAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAATQcAAAAAAABNBwAAAAAAAAAAAAAAAPC/"
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABNBwAAAAAAAE0HAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "\n\n#"
+					},
+					"AwAAAFEHAAAAAAAAUgcAAAAAAAAAAAAAUgcAAAAAAABTBwAAAAAAAAAAAABTBwAAAAAAAFQHAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUQcAAAAAAABRBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": " Sublime"
+					},
+					"CAAAAFQHAAAAAAAAVQcAAAAAAAAAAAAAVQcAAAAAAABWBwAAAAAAAAAAAABWBwAAAAAAAFcHAAAAAAAAAAAAAFcHAAAAAAAAWAcAAAAAAAAAAAAAWAcAAAAAAABZBwAAAAAAAAAAAABZBwAAAAAAAFoHAAAAAAAAAAAAAFoHAAAAAAAAWwcAAAAAAAAAAAAAWwcAAAAAAABcBwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVAcAAAAAAABUBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": " setii"
+					},
+					"BgAAAFwHAAAAAAAAXQcAAAAAAAAAAAAAXQcAAAAAAABeBwAAAAAAAAAAAABeBwAAAAAAAF8HAAAAAAAAAAAAAF8HAAAAAAAAYAcAAAAAAAAAAAAAYAcAAAAAAABhBwAAAAAAAAAAAABhBwAAAAAAAGIHAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAXAcAAAAAAABcBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					2,
+					"left_delete",
+					null,
+					"AgAAAGEHAAAAAAAAYQcAAAAAAAABAAAAaWAHAAAAAAAAYAcAAAAAAAABAAAAaQ",
+					"AQAAAAAAAAABAAAAYgcAAAAAAABiBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": "tings"
+					},
+					"BQAAAGAHAAAAAAAAYQcAAAAAAAAAAAAAYQcAAAAAAABiBwAAAAAAAAAAAABiBwAAAAAAAGMHAAAAAAAAAAAAAGMHAAAAAAAAZAcAAAAAAAAAAAAAZAcAAAAAAABlBwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAYAcAAAAAAABgBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": "\n."
+					},
+					"AgAAAGUHAAAAAAAAZgcAAAAAAAAAAAAAZgcAAAAAAABnBwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZQcAAAAAAABlBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"left_delete",
+					null,
+					"AQAAAGYHAAAAAAAAZgcAAAAAAAABAAAALg",
+					"AQAAAAAAAAABAAAAZwcAAAAAAABnBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AQAAAGYHAAAAAAAAZwcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZgcAAAAAAABmBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					1,
+					"left_delete",
+					null,
+					"AQAAAGYHAAAAAAAAZgcAAAAAAAABAAAALA",
+					"AQAAAAAAAAABAAAAZwcAAAAAAABnBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": ".sublime"
+					},
+					"CAAAAGYHAAAAAAAAZwcAAAAAAAAAAAAAZwcAAAAAAABoBwAAAAAAAAAAAABoBwAAAAAAAGkHAAAAAAAAAAAAAGkHAAAAAAAAagcAAAAAAAAAAAAAagcAAAAAAABrBwAAAAAAAAAAAABrBwAAAAAAAGwHAAAAAAAAAAAAAGwHAAAAAAAAbQcAAAAAAAAAAAAAbQcAAAAAAABuBwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZgcAAAAAAABmBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					14,
+					1,
+					"insert",
+					{
+						"characters": "*"
+					},
+					"AQAAAGYHAAAAAAAAZwcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZgcAAAAAAABmBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					15,
+					1,
+					"left_delete",
+					null,
+					"AQAAAGYHAAAAAAAAZgcAAAAAAAABAAAAKg",
+					"AQAAAAAAAAABAAAAZwcAAAAAAABnBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": "/*"
+					},
+					"AgAAAG4HAAAAAAAAbwcAAAAAAAAAAAAAbwcAAAAAAABwBwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbgcAAAAAAABuBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAHAHAAAAAAAAcQcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAcAcAAAAAAABwBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					27,
+					1,
+					"insert",
+					{
+						"characters": "*/"
+					},
+					"AgAAAGYHAAAAAAAAZwcAAAAAAAAAAAAAZwcAAAAAAABoBwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZgcAAAAAAABmBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					28,
+					1,
+					"delete_word",
+					{
+						"forward": false
+					},
+					"AQAAAGYHAAAAAAAAZgcAAAAAAAACAAAAKi8",
+					"AQAAAAAAAAABAAAAaAcAAAAAAABoBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					30,
+					2,
+					"left_delete",
+					null,
+					"AgAAAG8HAAAAAAAAbwcAAAAAAAABAAAAKm4HAAAAAAAAbgcAAAAAAAABAAAALw",
+					"AQAAAAAAAAABAAAAcAcAAAAAAABwBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					32,
+					1,
+					"left_delete",
+					null,
+					"AQAAAGYHAAAAAAAAZgcAAAAAAAABAAAALg",
+					"AQAAAAAAAAABAAAAZwcAAAAAAABnBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					33,
+					1,
+					"insert",
+					{
+						"characters": "*000"
+					},
+					"BAAAAGYHAAAAAAAAZwcAAAAAAAAAAAAAZwcAAAAAAABoBwAAAAAAAAAAAABoBwAAAAAAAGkHAAAAAAAAAAAAAGkHAAAAAAAAagcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZgcAAAAAAABmBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					34,
+					3,
+					"left_delete",
+					null,
+					"AwAAAGkHAAAAAAAAaQcAAAAAAAABAAAAMGgHAAAAAAAAaAcAAAAAAAABAAAAMGcHAAAAAAAAZwcAAAAAAAABAAAAMA",
+					"AQAAAAAAAAABAAAAagcAAAAAAABqBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					36,
+					1,
+					"insert",
+					{
+						"characters": "/*"
+					},
+					"AgAAAG4HAAAAAAAAbwcAAAAAAAAAAAAAbwcAAAAAAABwBwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbgcAAAAAAABuBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					37,
+					3,
+					"delete_word",
+					{
+						"forward": false
+					},
+					"AwAAAG4HAAAAAAAAbgcAAAAAAAACAAAALypnBwAAAAAAAGcHAAAAAAAABwAAAHN1YmxpbWVmBwAAAAAAAGYHAAAAAAAAAQAAACo",
+					"AQAAAAAAAAABAAAAcAcAAAAAAABwBwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					38,
+					1,
+					"paste",
+					null,
+					"AQAAAGYHAAAAAAAAbgcAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAZgcAAAAAAABmBwAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		}
@@ -1098,10 +1312,12 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/udit2/Codes/Projects/CBSE-12th-result-csv"
+		"/C/Users/udit2/Codes/Projects/CBSE-12th-result-csv",
+		"/C/Users/udit2/Codes/Projects/CBSE-12th-result-csv/.sublime"
 	],
 	"file_history":
 	[
+		"/C/Users/udit2/Codes/Projects/discord-bot/luci/.gitignore",
 		"/C/Users/udit2/Codes/Projects/CBSE-12th-result-csv/.sublime/cbse_result_parser.sublime-project",
 		"/C/Users/udit2/Codes/Projects/CBSE-12th-result-csv/.gitignore",
 		"/C/Users/udit2/Codes/Projects/CBSE-12th-result-csv/cbse_class_10_txt_to_csv.py",
@@ -1228,12 +1444,11 @@
 		"/C/Users/udit2/Codes/website-v2/content/posts/art/steph-curry.md",
 		"/C/Users/udit2/Codes/website-v2/content/posts/art/suresh-raina.md",
 		"/C/Users/udit2/Codes/website-v2/content/posts/art/2021-03-28-ed-sheeran.md",
-		"/C/Users/udit2/Codes/website-v2/content/posts/art/2021-03-28-suresh-raina.md",
-		"/C/Users/udit2/Codes/website-v2/content/posts/ssb-stories/day-1-my-experience-in-1-afsb-dehradun-luciferchase.md"
+		"/C/Users/udit2/Codes/website-v2/content/posts/art/2021-03-28-suresh-raina.md"
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 52.0
 	},
 	"find_in_files":
 	{
@@ -1297,15 +1512,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1873,
+						"buffer_size": 1903,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1873,
-								1873
+								1903,
+								1903
 							]
 						],
 						"settings":
@@ -1328,41 +1543,11 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -1378,11 +1563,41 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content"
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
 							],
 							"rainbow_checked": true,
 							"syntax": "Packages/Theme - Afterglow/Prefs/Langs/Git.tmLanguage"
