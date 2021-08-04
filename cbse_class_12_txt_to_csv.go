@@ -15,28 +15,61 @@ func main() {
     scanner := bufio.NewScanner(os.Stdin)
 
     for {
-        fmt.Println("Enter the (absolute) path to the CBSE Class 12th result file",
-         "(should be of the format {SCHOOL_CODE}.TXT).")
+        fmt.Println("Whose class' result do you want to convert?")
+        fmt.Println("\t1. Class X")
+        fmt.Println("\t2. Class XII")
+        
+        fmt.Print("\nEnter your choice: ")
+        scanner.Scan()
+        choice := scanner.Text()
+        
+        var class string
+        var outputFileName string
+        switch {
+        case choice == "1":
+            class = "X"
+            outputFileName = "class_10th_result.csv"
+        case choice == "2":
+            class = "XII"
+            outputFileName = "class_12th_result.csv"
+        default:
+            fmt.Println("Invalid choice. Please try again!")
+            continue
+        }
+
+        fmt.Printf(
+            "Enter the (absolute) path to the CBSE Class %s result file (should be of the format {SCHOOL_CODE}.TXT).\n",
+            class,
+        )
         fmt.Println("If this executable program is stored in the same directory, then enter its name only.")
         
         fmt.Print("\nPath: ")
         scanner.Scan()
+        
         path := strings.ToLower(scanner.Text())
 
-        err := writeToCSV(path)
+        err := writeToCSV(class, path)
         if err != nil {
             fmt.Println(err)
             fmt.Println("An error occurred. Please try again!\n")
             continue
         } else {
-            fmt.Println("Records successfully written to 'class_12th_result.csv'!")
-            break
+            fmt.Printf("Records successfully written to '%s'!\n", outputFileName)
+
+            fmt.Print("Press [Y] to convert another file or press [N] to exit the program: ")
+            scanner.Scan()
+
+            if strings.ToLower(scanner.Text()) == "y" {
+                continue
+            } else {
+                break
+            }
         }
     }
 }
 
-func writeToCSV(path string) error {
-    if path[len(path) - 4: len(path)] != ".txt" {
+func writeToCSV(class, path string) error {
+    if len(path) == 0 || path[len(path) - 4: len(path)] != ".txt" {
         return errors.New("It doesn't looks like a valid result file. Make sure the path is correct.")
     }
 
@@ -55,15 +88,25 @@ func writeToCSV(path string) error {
         rawData = append(rawData, records...) 
     }
 
-    // Check if the given file is actually 12th result file or not
-    if strings.Join(rawData[4:8], " ") != "SENIOR SCHOOL CERTIFICATE EXAMINATION" {
-        fmt.Println("It doesn't looks like a valid result file. Make sure the path is correct.")
-        return errors.New("Not a valid 12th result file.")
+    // Check if the given file is actually result file or not
+    var validFile int
+    var outputFileName string
+    switch {
+    case class == "X":
+        validFile = strings.Compare(strings.Join(rawData[4:7], " "), "SECONDARY SCHOOL EXAMINATION")
+        outputFileName = "class_10th_result.csv"
+    case class == "XII":
+        validFile = strings.Compare(strings.Join(rawData[4:8], " "), "SENIOR SCHOOL CERTIFICATE EXAMINATION")
+        outputFileName = "class_12th_result.csv"
+    }
+    
+    if validFile != 0 {
+        return errors.New("Invalid file!")
     }
 
-    parsedData := parser(rawData)
+    parsedData := parser(class, rawData)
 
-    outputFile, _ := os.Create("class_12th_result.csv")
+    outputFile, _ := os.Create(outputFileName)
     defer outputFile.Close()
 
     writer := csv.NewWriter(outputFile)
@@ -77,16 +120,35 @@ func writeToCSV(path string) error {
     }
 }
 
-func parser(rawData []string) [][]string {
+func parser(class string, rawData []string) [][]string {
+    // For Class X every field is 3 index before their counterpart in Class XII
+    var modifyIndex int
+    if class == "X" {
+        modifyIndex = -3
+    }
+
     rollRegex, _ := regexp.Compile("^\\d{8}$")
-    nameRegex, _ := regexp.Compile("([A-Z])\\w+")
+    nameRegex, _ := regexp.Compile("(([A-Z])\\w+)|([A-Z]){1}")
 
     subjectCodes := map[string]string{
+        // Class X
+        "002": "HINDI",
+        "086": "SCIENCE",
+        "087": "SOCIAL SC.",
+        "122": "SANSKRIT",
+        "184": "ENGLISH",
+        "241": "MATHEMATICS - BASIC",
+        "401": "RETAILING",
+        "402": "IT",
+
+        // COMMON
+        "041": "MATHEMATICS",
+
+        // Class XII
         "027": "HISTORY",
         "028": "POLITICAL SCIENCE",
         "029": "GEOGRAPHY",
         "030": "ECONOMICS",
-        "041": "MATHEMATICS",
         "042": "PHYSICS",
         "043": "CHEMISTRY",
         "044": "BIOLOGY",
@@ -149,19 +211,26 @@ func parser(rawData []string) [][]string {
             }
 
             // Skip R.L or other results which doesn't have any data to it
-            result := rawData[i + 13]
+            var modifySubject int
+            result := rawData[i + 13 + modifyIndex]
             if result != "PASS" && result != "COMP" {
-                continue
+                // For those students who has only 5 subjects
+                if rawData[i + 12 + modifyIndex] == "PASS" || rawData[i + 12 + modifyIndex] == "COMP" {
+                    modifySubject = -1
+                    i++
+                } else {
+                    continue
+                }
             }
 
             var studentSubjects [][]string
-            for _, j := range rawData[i + 4: i + 10] {
+            for _, j := range rawData[i + 4: i + 10 + modifySubject] {
                 studentSubjects = append(studentSubjects, []string{j, subjectCodes[j]})
             }
 
             var marks [][]string
-            for j := 14; j < 25; j += 2 {
-                marks = append(marks, []string{rawData[i + j], rawData[i + j + 1]})
+            for j := 14; j < 25 + modifySubject; j += 2 {
+                marks = append(marks, []string{rawData[i + j + modifyIndex], rawData[i + j + modifyIndex + 1]})
             }
 
             var total int
@@ -169,15 +238,20 @@ func parser(rawData []string) [][]string {
                 num, _ := strconv.Atoi(j[0])
                 total += num
             }
-            additionalSubjectMarks, _ := strconv.Atoi(marks[5][0])
-            percentage := (total - additionalSubjectMarks) / 5
 
+            var percentage float64
+            if len(studentSubjects) == 6 {
+                additionalSubjectMarks, _ := strconv.Atoi(marks[5][0])
+                percentage = (float64(total) - float64(additionalSubjectMarks)) / 5.00
+            } else {
+                percentage = float64(total) / 5.00
+            }
             // Convert everything back to string
             strTotal := strconv.Itoa(total)
-            strPercentage := strconv.Itoa(percentage)
+            strPercentage := fmt.Sprint(percentage)
 
             studentData := []string{roll, gender, name}
-            for j := 0; j < 6; j++ {
+            for j := 0; j < 6 + modifySubject; j++ {
                 tempArray := []string{studentSubjects[j][0], studentSubjects[j][1], marks[j][0], marks[j][1]}
                 studentData = append(studentData, tempArray...)
             }
