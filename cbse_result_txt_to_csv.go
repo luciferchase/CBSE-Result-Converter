@@ -5,13 +5,37 @@ import (
     "encoding/csv"
     "errors"
     "fmt"
+    "os"
     "regexp"
     "strconv"
     "strings"
-    "os"
+
+    "github.com/fatih/color"
+
+    // Useful packages but buggy hence not in use yet
+    // "github.com/common-nighthawk/go-figure"
+    // "github.com/manifoldco/promptui"
 )
 
 func main() {
+    // Set colours
+    asciiArt := color.New(color.FgCyan, color.Bold).PrintlnFunc()
+    prompt := color.New(color.FgYellow, color.Bold).PrintFunc()
+    warn := color.New(color.FgRed, color.Bold).PrintlnFunc()
+    success := color.New(color.FgGreen, color.Bold).PrintfFunc()
+
+    title := 
+    `
+        ========================================================================================
+          ________  ________  ___               ____    _____                      __         
+         / ___/ _ )/ __/ __/ / _ \___ ___ __ __/ / /_  / ___/__  ___ _  _____ ____/ /____ ____
+        / /__/ _  |\ \/ _/  / , _/ -_|_-</ // / / __/ / /__/ _ \/ _ \ |/ / -_) __/ __/ -_) __/
+        \___/____/___/___/ /_/|_|\__/___/\_,_/_/\__/  \___/\___/_//_/___/\__/_/  \__/\__/_/  
+
+        ========================================================================================                                                                                         
+    `
+    asciiArt(title)
+
     scanner := bufio.NewScanner(os.Stdin)
 
     for {
@@ -19,7 +43,7 @@ func main() {
         fmt.Println("\t1. Class X")
         fmt.Println("\t2. Class XII")
         
-        fmt.Print("\nEnter your choice: ")
+        prompt("\nEnter your choice: ")
         scanner.Scan()
         choice := scanner.Text()
         
@@ -33,33 +57,34 @@ func main() {
             class = "XII"
             outputFileName = "class_12th_result.csv"
         default:
-            fmt.Println("Invalid choice. Please try again!")
+            warn("Invalid choice. Please try again!")
             continue
         }
 
-        fmt.Printf(
-            "Enter the (absolute) path to the CBSE Class %s result file (should be of the format {SCHOOL_CODE}.TXT).\n",
-            class,
+        fmt.Println(
+            "\nEnter the (absolute) path to the CBSE Class", class, 
+            "result file (should be of the format {SCHOOL_CODE}.TXT).",
         )
         fmt.Println("If this executable program is stored in the same directory, then enter its name only.")
-        
-        fmt.Print("\nPath: ")
+
+        prompt("\nPath: ")
         scanner.Scan()
-        
+
         path := strings.ToLower(scanner.Text())
 
         err := writeToCSV(class, path)
         if err != nil {
             fmt.Println(err)
-            fmt.Println("An error occurred. Please try again!\n")
+            warn("An error occurred. Please try again!\n")
             continue
         } else {
-            fmt.Printf("Records successfully written to '%s'!\n", outputFileName)
+            success("Records successfully written to '%s'!\n", outputFileName)
 
-            fmt.Print("Press [Y] to convert another file or press [N] to exit the program: ")
+            prompt("Press [Y] to convert another file or press [N] to exit the program: ")
             scanner.Scan()
 
             if strings.ToLower(scanner.Text()) == "y" {
+                fmt.Println()
                 continue
             } else {
                 break
@@ -69,7 +94,7 @@ func main() {
 }
 
 func writeToCSV(class, path string) error {
-    if len(path) == 0 || path[len(path) - 4: len(path)] != ".txt" {
+    if len(path) == 0 || path[len(path)-4:len(path)] != ".txt" {
         return errors.New("It doesn't looks like a valid result file. Make sure the path is correct.")
     }
 
@@ -85,7 +110,7 @@ func writeToCSV(class, path string) error {
 
     for scanner.Scan() {
         records := strings.Fields(scanner.Text())
-        rawData = append(rawData, records...) 
+        rawData = append(rawData, records...)
     }
 
     // Check if the given file is actually result file or not
@@ -99,7 +124,7 @@ func writeToCSV(class, path string) error {
         validFile = strings.Compare(strings.Join(rawData[4:8], " "), "SENIOR SCHOOL CERTIFICATE EXAMINATION")
         outputFileName = "class_12th_result.csv"
     }
-    
+
     if validFile != 0 {
         return errors.New("Invalid file!")
     }
@@ -110,7 +135,7 @@ func writeToCSV(class, path string) error {
     defer outputFile.Close()
 
     writer := csv.NewWriter(outputFile)
-    
+
     err = writer.WriteAll(parsedData)
     if err != nil {
         fmt.Println(err)
@@ -165,12 +190,12 @@ func parser(class string, rawData []string) [][]string {
 
     parsedData := [][]string{
         {
-            "ROLL", "GENDER", "NAME", 
-            "SUBJECT CODE 1", "SUBJECT NAME", "MARKS OBTAINED", "GRADE", 
-            "SUBJECT CODE 2", "SUBJECT NAME", "MARKS OBTAINED", "GRADE", 
-            "SUBJECT CODE 3", "SUBJECT NAME", "MARKS OBTAINED", "GRADE", 
-            "SUBJECT CODE 4", "SUBJECT NAME", "MARKS OBTAINED", "GRADE", 
-            "SUBJECT CODE 5", "SUBJECT NAME", "MARKS OBTAINED", "GRADE", 
+            "ROLL", "GENDER", "NAME",
+            "SUBJECT CODE 1", "SUBJECT NAME", "MARKS OBTAINED", "GRADE",
+            "SUBJECT CODE 2", "SUBJECT NAME", "MARKS OBTAINED", "GRADE",
+            "SUBJECT CODE 3", "SUBJECT NAME", "MARKS OBTAINED", "GRADE",
+            "SUBJECT CODE 4", "SUBJECT NAME", "MARKS OBTAINED", "GRADE",
+            "SUBJECT CODE 5", "SUBJECT NAME", "MARKS OBTAINED", "GRADE",
             "SUBJECT CODE 6", "SUBJECT NAME", "MARKS OBTAINED", "GRADE",
             "TOTAL", "PERCENTAGE", "RESULT",
         },
@@ -178,44 +203,44 @@ func parser(class string, rawData []string) [][]string {
 
     for i, _ := range rawData {
         if rollRegex.MatchString(rawData[i]) {
-            // Parse individual student's data 
+            // Parse individual student's data
 
             roll := rawData[i]
-            gender := rawData[i + 1]
+            gender := rawData[i+1]
 
             var name string
             switch {
             // Extremely rare but if a student has five word name
-            case nameRegex.MatchString(rawData[i + 6]):
-                name = strings.Join(rawData[i + 2: i + 7], " ")
+            case nameRegex.MatchString(rawData[i+6]):
+                name = strings.Join(rawData[i+2:i+7], " ")
                 i += 3
 
             // Rare but if a student has four word name
-            case nameRegex.MatchString(rawData[i + 5]):
-                name = strings.Join(rawData[i + 2: i + 6], " ")
+            case nameRegex.MatchString(rawData[i+5]):
+                name = strings.Join(rawData[i+2:i+6], " ")
                 i += 2
 
             // If a student has three word name
-            case nameRegex.MatchString(rawData[i + 4]):
-                name = strings.Join(rawData[i + 2: i + 5], " ")
+            case nameRegex.MatchString(rawData[i+4]):
+                name = strings.Join(rawData[i+2:i+5], " ")
                 i++
 
             // If a student has only one word name
-            case !nameRegex.MatchString(rawData[i + 3]):
-                name = rawData[i + 2]
+            case !nameRegex.MatchString(rawData[i+3]):
+                name = rawData[i+2]
                 i--
-            
+
             // Default two word names
             default:
-                name = strings.Join(rawData[i + 2: i + 4], " ")
+                name = strings.Join(rawData[i+2:i+4], " ")
             }
 
             // Skip R.L or other results which doesn't have any data to it
             var modifySubject int
-            result := rawData[i + 13 + modifyIndex]
+            result := rawData[i+13+modifyIndex]
             if result != "PASS" && result != "COMP" {
                 // For those students who has only 5 subjects
-                if rawData[i + 12 + modifyIndex] == "PASS" || rawData[i + 12 + modifyIndex] == "COMP" {
+                if rawData[i+12+modifyIndex] == "PASS" || rawData[i+12+modifyIndex] == "COMP" {
                     modifySubject = -1
                     i++
                 } else {
@@ -224,13 +249,13 @@ func parser(class string, rawData []string) [][]string {
             }
 
             var studentSubjects [][]string
-            for _, j := range rawData[i + 4: i + 10 + modifySubject] {
+            for _, j := range rawData[i+4 : i+10+modifySubject] {
                 studentSubjects = append(studentSubjects, []string{j, subjectCodes[j]})
             }
 
             var marks [][]string
-            for j := 14; j < 25 + modifySubject; j += 2 {
-                marks = append(marks, []string{rawData[i + j + modifyIndex], rawData[i + j + modifyIndex + 1]})
+            for j := 14; j < 25+modifySubject; j += 2 {
+                marks = append(marks, []string{rawData[i+j+modifyIndex], rawData[i+j+modifyIndex+1]})
             }
 
             var total int
@@ -251,7 +276,7 @@ func parser(class string, rawData []string) [][]string {
             strPercentage := fmt.Sprint(percentage)
 
             studentData := []string{roll, gender, name}
-            for j := 0; j < 6 + modifySubject; j++ {
+            for j := 0; j < 6+modifySubject; j++ {
                 tempArray := []string{studentSubjects[j][0], studentSubjects[j][1], marks[j][0], marks[j][1]}
                 studentData = append(studentData, tempArray...)
             }
