@@ -128,15 +128,15 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Result files
-*.txt
-*.csv
+# Input/Output
+input
+output
+bin
+test
+*.json
 
 # Test files
 test.*
-
-# Executable files
-*.exe
 
 # Sublime settings
 .sublime
