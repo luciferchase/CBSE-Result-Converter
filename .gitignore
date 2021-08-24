@@ -140,3 +140,7 @@ test.*
 
 # Sublime settings
 .sublime
+
+# Assets
+bundled.go
+*.pdf
