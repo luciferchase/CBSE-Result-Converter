@@ -129,6 +129,9 @@ func main() {
 			fmt.Println(err)
 			warn("An error occurred. Please try again!\n")
 			continue
+		} else if len(path) == 0 {
+			// If no file is specifed, store it to ./output/ folder
+			warn("Saving file to ./output/ folder")
 		}
 
 		err = backend.Write(parsedData, class, path)

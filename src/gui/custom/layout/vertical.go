@@ -6,8 +6,11 @@ import (
 	"fyne.io/fyne/v2/theme"
 )
 
+// I have no idea of majority of its working, but I just hacked together a way to set my
+// desired padding in between the components
+
 type Vertical struct {
-	Padding 	float32
+	Padding float32
 }
 
 func isVerticalSpacer(obj fyne.CanvasObject) bool {

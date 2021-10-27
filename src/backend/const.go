@@ -1,9 +1,9 @@
 package backend
 
 type student struct {
-	Rank       int
-	Name       string
-	Percentage string
+	Roll 		string
+	Name       	string
+	Percentage 	float64
 }
 
 type Result struct {
@@ -13,6 +13,7 @@ type Result struct {
 	Passed      string
 	Repeat      string
 	Total       string
+	// I don't know how to calculate PI but maybe someday I will learn it
 	PI          float64
 	Topper      student
 	LowestMarks student

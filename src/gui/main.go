@@ -1,208 +1,94 @@
 package main
 
 import (
-	"errors"
-	// "log"
-	"os"
-	"strings"
-
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
-	"fyne.io/fyne/v2/dialog"
-	// "fyne.io/fyne/v2/layout"
-	"fyne.io/fyne/v2/storage"
-	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 
 	assets "github.com/luciferchase/CBSE-Result-Converter/src/gui/assets"
-	backend "github.com/luciferchase/CBSE-Result-Converter/src/backend"
+	content "github.com/luciferchase/CBSE-Result-Converter/src/gui/content"
 	layout "github.com/luciferchase/CBSE-Result-Converter/src/gui/custom/layout"
 )
 
 func main() {
-	app := app.New()
+	// I tried "Result Converter" but it crashes and I don't like result.converter
+	// hence using "Result" for now.
+	// Not sure if this is a bug or a feature.
+	app := app.NewWithID("Result")
 
 	window := app.NewWindow("Result Converter")
-	window.Resize(fyne.NewSize(700, 500))
+	window.CenterOnScreen()
+	// I have opted instead of letting the app decide the dimension, fixing it beforehand
+	// this way I could ensure every thing looks nice and easy considering the end users
+	// are going to be mostly window owners with majority of them having 1366x768 resolution.
+	// I know this is not the most optimum way, but I like this.
+	window.Resize(fyne.NewSize(580, 350))
 	window.SetFixedSize(true)
-
+	// Used Flaticon (https://www.flaticon.com) for the icon
 	window.SetIcon(assets.Icon)
 
+	// Used Logojoy (https://logojoy.com/dashboard) for the inspiration for the logo
 	logo := canvas.NewImageFromResource(assets.Logo)
-	logo.SetMinSize(fyne.NewSize(700, 90))
+	logo.SetMinSize(fyne.NewSize(570, 100))
 
+	appTabs := mainScreen(window)
 
-	var class string
-	classRadio := widget.NewRadioGroup([]string{"Class 10", "Class 12"},
-		func(value string) {
-			if value == "Class 10" {
-				class = "X"
-			} else if value == "Class 12" {
-				class = "XII"
-			}
-		},
-	)
-
-	fileNameLabel := widget.NewLabel("No file selected!")
-
-	var file fyne.URI
-	openFileButton := widget.NewButtonWithIcon("Browse", theme.FileIcon(), func() {
-		openFileDialog := dialog.NewFileOpen(func(callback fyne.URIReadCloser, err error) {
-			if err != nil {
-				dialog.ShowError(err, window)
-				return
-			}
-			if callback == nil {
-				dialog.ShowError(errors.New("Select a file!"), window)
-			} else {
-				file = callback.URI()
-				fileNameLabel.SetText(file.Name())
-			}
-		}, window)
-
-		openFileDialog.Resize(fyne.NewSize(600, 400))
-		openFileDialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt"}))
-
-		cwd, _ := os.Getwd()
-		dir, _ := storage.ListerForURI(storage.NewFileURI(cwd))
-		openFileDialog.SetLocation(dir)
-
-		openFileDialog.Show()
-	})
-	openFileButton.Resize(fileNameLabel.MinSize())
-
-	convertButton := widget.NewButtonWithIcon("Convert to CSV", theme.StorageIcon(), func() {
-		// First check if class is selected or not
-		if len(class) == 0 {
-			dialog.ShowError(errors.New("Select a class first!"), window)
-			return
-		}
-
-		parsedData, _, missingSubjectCodes, err := backend.Parse(file.Path(), class)
-		if err != nil {
-			dialog.ShowError(err, window)
-			return
-		}
-
-		if len(missingSubjectCodes) != 0 {
-			dialogBoxContent := widget.NewLabel(
-				"These subject codes are missing from the database: \n[" +
-					strings.Join(missingSubjectCodes, ", ") + "]\n\n" +
-					"Do you want to enter their names so it can be added to database?")
-
-			dialog.ShowCustomConfirm("Missing Subject Codes", "Enter names", "Skip",
-				dialogBoxContent, func(choice bool) {
-					if choice {
-						var subjectNames []*widget.Entry
-						var formContent []*widget.FormItem
-
-						for _, i := range missingSubjectCodes {
-							nameEntry := widget.NewEntry()
-							formContent = append(formContent,
-								&widget.FormItem{Text: i, Widget: nameEntry})
-							subjectNames = append(subjectNames, nameEntry)
-						}
-
-						dialog.ShowForm("Missing Subject Codes", "Save", "Skip",
-							formContent, func(bool) {
-								subjectCodes := make(map[string]string)
-								for i, code := range missingSubjectCodes {
-									subjectCodes[code] = strings.ToUpper((*subjectNames[i]).Text)
-								}
-
-								err = backend.Update(subjectCodes)
-								if err != nil {
-									dialog.ShowError(err, window)
-									return
-								} else {
-									dialog.ShowInformation("Missing Subject Codes",
-										"Subject Codes Updated Successfully!\nResult File is now Complete!",
-										window)
-									// Try again
-									parsedData, _, missingSubjectCodes, err = backend.Parse(file.Path(), class)
-									if err != nil {
-										dialog.ShowError(err, window)
-										return
-									}
-								}
-							}, window)
-					} else {
-						dialog.ShowInformation("Missing Subject Codes",
-							"ALERT: Few records will be missing from the result file!",
-							window)
-					}
-				}, window)
-		} else {
-			dialog.ShowCustomConfirm("Save File", "Save File", "Discard",
-				widget.NewLabel("File Converted Successfully to .csv!"), func(choice bool) {
-					if choice {
-						saveFileDialog := dialog.NewFileSave(func(callback fyne.URIWriteCloser, err error) {
-							if err != nil {
-								dialog.ShowError(err, window)
-								return
-							}
-							if callback == nil {
-								dialog.ShowError(errors.New("Select a file!"), window)
-							} else {
-								file = callback.URI()
-								err = backend.Write(parsedData, class, file.Path())
-								if err != nil {
-									dialog.ShowError(err, window)
-									return
-								}
-							}
-						}, window)
-
-						saveFileDialog.Resize(fyne.NewSize(600, 400))
-						saveFileDialog.SetFilter(storage.NewExtensionFileFilter([]string{".csv"}))
-
-						cwd, _ := os.Getwd()
-						dir, _ := storage.ListerForURI(storage.NewFileURI(cwd))
-						saveFileDialog.SetLocation(dir)
-
-						saveFileDialog.Show()
-					}
-				}, window)
-		}
-	})
-
-	convert := container.New(
-		&layout.Vertical{Padding: 10},
-		container.New(
-			&layout.Horizontal{Padding: 32},
-			widget.NewLabel("Select Class:"),
-			classRadio,
-		),
-		container.New(
-			&layout.Horizontal{},
-			widget.NewLabel("Open Result File:"),
-			container.New(
-				&layout.Vertical{},
-				fileNameLabel,
-				openFileButton,
-			),
-		),
-		convertButton,
-	)
-
-	analyse := container.New(
-		&layout.Center{},
-		widget.NewLabel("Convert a file first to see Analysis!"),
-	)
-
-	content := container.New(
-		&layout.Vertical{},
+	// Design for the main screen is really simple having only 2 components
+	// 1. Logo - panning horizontally at the top
+	// 2. Tabs - I. Convert Tab
+	//					a) Class Radio (Required)
+	//					b) Browse File (Required)
+	// 					c) Convert Button
+	// 			 II. Analysis Tab
+	// 					a) School Result (Everything related to the school performance)
+	// 					b) Topper Performance
+	//					c) Worst Performance
+	content := container.NewVBox(
 		logo,
-		container.New(
-			&layout.Horizontal{Padding: 25},
-			convert,
-			widget.NewSeparator(),
-			analyse,
-		),
+		appTabs,
 	)
 
 	window.SetContent(content)
 	window.ShowAndRun()
+}
+
+func mainScreen(window fyne.Window) fyne.CanvasObject {
+	// Initialise components
+	classRadio, fileNameLabel, openFileButton,
+		convertButton, analyse := content.ConvertTab(window)
+	classRadio.Required = true
+
+	// Convert Tab
+	formItems := []*widget.FormItem{
+		{
+			Text:   "Class",
+			Widget: classRadio,
+		},
+		{
+			Text:     "Input File",
+			Widget:   container.NewHBox(openFileButton, fileNameLabel),
+			HintText: "Select a valid CBSE issued result text file",
+		},
+	}
+	form := widget.NewForm(formItems...)
+
+	// Used my own layout for better control over the padding between the components
+	convert := container.New(
+		&layout.Vertical{Padding: 20},
+		form,
+		convertButton,
+	)
+
+	// Workaround to set tabs to the middle of the screen
+	// \t produces square like things only
+	// One of the reason for fixing the size of the window.
+	appTabs := container.NewAppTabs(
+		container.NewTabItem("						    Convert						    ", convert),
+		container.NewTabItem("						    Analyse						    ", analyse),
+	)
+	appTabs.SetTabLocation(container.TabLocationTop)
+
+	return appTabs
 }
